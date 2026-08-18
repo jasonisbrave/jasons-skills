@@ -1,6 +1,6 @@
-# omo-slim（Kimi Code 复刻版）
+# omk-slim（Oh My Kimi Code）
 
-复刻 [oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim) 核心思想的 Kimi Code 插件：**与其让一个模型做所有事，不如把工作的每个部分路由给最合适的智能体和模型档位**，在主 Agent 一个编排者下平衡质量、速度与成本。
+复刻 [oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim) 核心思想的 Kimi Code 插件（omk = Oh My Kimi Code）：**与其让一个模型做所有事，不如把工作的每个部分路由给最合适的智能体和模型档位**，在主 Agent 一个编排者下平衡质量、速度与成本。
 
 ## 包含内容
 
@@ -24,7 +24,7 @@ git clone https://github.com/jasonisbrave/jasons-skills.git
 然后在 Kimi Code 中：
 
 ```
-/plugins install <克隆路径>/omo-slim
+/plugins install <克隆路径>/omk-slim
 /reload
 ```
 

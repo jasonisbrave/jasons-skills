@@ -1,5 +1,5 @@
 {
-  "name": "omo-slim",
+  "name": "omk-slim",
   "version": "1.0.0",
   "description": "多智能体编排与模型路由套件：按场景把子任务派发给专家子智能体并选择合适档位的模型，平衡质量、速度与成本。复刻自 oh-my-opencode-slim。",
   "keywords": ["orchestration", "model-routing", "subagents", "cost-optimization"],
@@ -8,7 +8,7 @@
   "agents": "./agents/",
   "systemPromptPath": "./SYSTEM.md",
   "interface": {
-    "displayName": "OMO Slim (Kimi Code 复刻版)",
+    "displayName": "OMK Slim (Oh My Kimi Code)",
     "shortDescription": "按场景路由模型的多智能体编排套件：explorer / librarian / fixer / oracle"
   }
 }

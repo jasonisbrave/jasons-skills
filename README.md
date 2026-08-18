@@ -31,17 +31,17 @@ python scripts/pdf_table_to_md.py <pdf路径> <输出.md> \
     --start-page 1 --end-page 17 --header "考试内容,能力等级" --filter 主要参考法规
 ```
 
-### omo-slim（Kimi Code 插件）
+### omk-slim（Kimi Code 插件）
 
-复刻 oh-my-opencode-slim 的多智能体编排与模型路由套件：主 Agent 作为编排者，按场景把子任务派发给 `explorer`（代码侦察）/ `librarian`（外部调研）/ `fixer`（实现）/ `oracle`（架构顾问）四个专家子智能体，并配合 `[secondary_model]` 模型池把不同场景路由到不同档位的模型，平衡质量与成本。
+复刻 oh-my-opencode-slim 的多智能体编排与模型路由套件（omk = Oh My Kimi Code）：主 Agent 作为编排者，按场景把子任务派发给 `explorer`（代码侦察）/ `librarian`（外部调研）/ `fixer`（实现）/ `oracle`（架构顾问）四个专家子智能体，并配合 `[secondary_model]` 模型池把不同场景路由到不同档位的模型，平衡质量与成本。
 
 ```bash
 # 克隆后在 Kimi Code 中：
-/plugins install <克隆路径>/omo-slim
+/plugins install <克隆路径>/omk-slim
 /reload
 ```
 
-详见 [omo-slim/README.md](omo-slim/README.md)（含模型池配置步骤）。
+详见 [omk-slim/README.md](omk-slim/README.md)（含模型池配置步骤）。
 
 ## 依赖
 
