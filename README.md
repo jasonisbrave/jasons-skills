@@ -43,6 +43,17 @@ python scripts/pdf_table_to_md.py <pdf路径> <输出.md> \
 
 详见 [omk-slim/README.md](omk-slim/README.md)（含模型池配置步骤）。
 
+### omz-slim（ZCode 插件）
+
+参考 oh-my-opencode-slim 的成本控制思路为 ZCode 做的精简版编排插件（omz = Oh My ZCode）：主对话作为编排者，把读代码、机械改动的重 token 工作派给后台子智能体，主上下文只保留规划与汇总。包含 3 个子智能体——`omz-explorer`（只读代码侦察，可配便宜模型）、`omz-fixer`（机械实现执行者，可配便宜模型）、`omz-oracle`（疑难架构顾问，最贵路径、仅手动触发），以及 `/delegate`、`/oracle`、`/preset` 三个斜杠命令控制委派与路由强度。
+
+```bash
+# ZCode 中：Settings → Plugin Management → Discover → +
+# 将本仓库（或含 omz-slim/ 的本地目录）添加为 marketplace，安装并启用 omz-slim
+```
+
+详见 [omz-slim/README.md](omz-slim/README.md)。
+
 ## 依赖
 
 - Python 3.10+
