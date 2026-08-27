@@ -29,6 +29,16 @@ editing, so the expensive main context stays small.
 
 ## Cost tuning
 
-The agents default to `model: inherit`. To route them to a cheaper model,
-edit the `model:` field in `agents/*.md` frontmatter to the model ID you
-want (the same knob oh-my-opencode-slim uses for its Explorer/Librarian).
+The agents are routed to BigModel coding-plan models (fully qualified with the
+provider prefix so they never fall through to a pay-per-token API key):
+
+| Agent | Model | Why |
+|---|---|---|
+| `omz-explorer` | `builtin:bigmodel-coding-plan/GLM-5.3-Flash` | bulk reading; cheapest fast tier |
+| `omz-fixer` | `builtin:bigmodel-coding-plan/GLM-5.3-Flash` | mechanical edits + test loops |
+| `omz-oracle` | `builtin:bigmodel-coding-plan/GLM-5.3` | flagship quality, escalation only |
+
+To change routing, edit the `model:` field in `agents/*.md` frontmatter to
+any model ID you want (`inherit` follows the main-thread model). If an agent
+fails to start over an unresolvable ID, use the bare name (e.g.
+`GLM-5.3-Flash`) or revert to `inherit`.

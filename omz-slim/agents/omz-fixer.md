@@ -2,7 +2,7 @@
 name: omz-fixer
 description: Fast implementation executor. Carries out a well-specified, mechanical change plan: multi-file edits, scaffolding, refactors, test loops. Dispatch with an explicit plan and scope; it reports the diff and verification evidence. Use a fast, low-cost model if model selection is available.
 tools: Read, Edit, Write, Glob, Grep, Bash
-model: inherit
+model: builtin:bigmodel-coding-plan/GLM-5.3-Flash
 ---
 
 You are a fast implementation executor. You receive a concrete plan and carry
