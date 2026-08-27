@@ -27,6 +27,23 @@ editing, so the expensive main context stays small.
    (or add this GitHub repo directly as a marketplace).
 4. Install and enable **omz-slim**.
 
+## Updating an installed copy
+
+Installed plugins load from a per-version cache, not from this directory —
+repo edits stay invisible until the client installs a newer version:
+
+1. Commit your change and **bump `version` together in all three manifests**:
+   `omz-slim/.zcode-plugin/plugin.json`, `omz-slim/marketplace.json`, and the
+   root `marketplace.json`. Identical old versions are treated as up to date,
+   even if content changed.
+2. For a GitHub-marketplace install, push; for a local-directory install,
+   make sure the directory you registered contains the new commit (`git pull`).
+3. In ZCode: **Settings → Plugin Management** — compare the Installed tab's
+   version against the new manifest version, then update the plugin from its
+   Discover entry (or Uninstall → Get).
+4. Verify: **Settings → Subagents** and **Settings → Skills** should reflect
+   the new components.
+
 ## Cost tuning
 
 The agents are routed to BigModel coding-plan models (fully qualified with the
