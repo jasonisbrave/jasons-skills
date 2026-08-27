@@ -1,0 +1,14 @@
+{
+  "name": "jasons-skills",
+  "owner": {
+    "name": "bingtang"
+  },
+  "plugins": [
+    {
+      "name": "omz-slim",
+      "source": "./omz-slim",
+      "description": "oh my ZCode - slim: cost-aware orchestration with explorer/fixer/oracle subagents",
+      "version": "0.1.0"
+    }
+  ]
+}
