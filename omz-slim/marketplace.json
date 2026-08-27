@@ -1,0 +1,14 @@
+{
+  "name": "omz-slim-local",
+  "owner": {
+    "name": "bingtang"
+  },
+  "plugins": [
+    {
+      "name": "omz-slim",
+      "source": "./",
+      "description": "oh my ZCode - slim: cost-aware orchestration with explorer/fixer/oracle subagents",
+      "version": "0.1.0"
+    }
+  ]
+}
