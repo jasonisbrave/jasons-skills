@@ -1,6 +1,6 @@
 {
   "name": "omz-slim",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "oh my ZCode - slim: cost-aware orchestration across ZCode, Kimi Code and OpenCode. Routes exploration/retrieval to fast cheap subagents, dispatches bulk sweeps to OpenCode and trusted implementation/review to Kimi Code, and reserves the main model for reasoning and final assembly.",
   "skills": "skills",
   "commands": "commands",

@@ -2,7 +2,7 @@
 
 [oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim)（omo-slim）的推荐配置，面向**双订阅用户**：把 OpenCode 各 agent 角色按场景路由到 Kimi 订阅（`kimi-for-coding`）与 GLM 订阅（`zhipuai-coding-plan`）的不同档位——重的给旗舰，廉价的给 highspeed / flash，订阅额度利用率最大化。
 
-见贤思齐：omz-slim（ZCode）与 omk-slim（Kimi Code）是同一编排思想在另外两个工具里的实现。
+见贤思齐：[omz-slim](../README.md)（ZCode）与 [omk-slim](../../omk-slim/)（Kimi Code）是同一编排思想在另外两个工具里的实现。
 
 ## 文件
 

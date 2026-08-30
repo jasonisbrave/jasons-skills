@@ -27,6 +27,7 @@ editing, so the expensive main context stays small.
 | `/preset [strict\|balanced\|off]` | Adjust routing discipline for the session |
 | `/kimi <task>` | Dispatch a read-only/review task to Kimi Code CLI (`kimi -p`), summary only |
 | `/oc <task>` | Dispatch a cheap bulk sweep to OpenCode (oh-my-opencode-slim agent), summary only |
+| `omo-slim-config/` | Optional OpenCode configuration for oh-my-opencode-slim — the `kimi-glm` preset routing subscription models per role |
 
 ## What's new in v1.0.1 — cross-tool dispatch (A+C pattern)
 
