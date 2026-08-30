@@ -54,6 +54,12 @@ python scripts/pdf_table_to_md.py <pdf路径> <输出.md> \
 
 详见 [omz-slim/README.md](omz-slim/README.md)。
 
+### omo-slim-config（OpenCode 可选配置）
+
+[oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim) 的推荐配置：`kimi-glm` 预设把 orchestrator / oracle / librarian / explorer / fixer / designer / observer 等角色路由到 Kimi 订阅（kimi-for-coding）与 GLM 订阅（zhipuai-coding-plan）的不同档位，council 会诊池混用两家的旗舰模型，订阅额度利用率最大化。适用于双订阅用户，单订阅按 README 说明删减备选模型即可。
+
+详见 [omo-slim-config/README.md](omo-slim-config/README.md)。
+
 ## 依赖
 
 - Python 3.10+
