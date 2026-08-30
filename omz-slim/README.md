@@ -1,5 +1,12 @@
 # omz-slim (oh my ZCode — slim)
 
+> **总要领:见贤思齐焉。**
+> "When you see a worthy person, strive to equal them." — 《论语·里仁》
+>
+> This plugin exists in emulation of the worthy: oh-my-opencode-slim's agent
+> design, Kimi Code's delivery quality, OpenCode's subscription-maximizing
+> routing. See the good, learn it, and bring it home.
+
 A cost-aware orchestration plugin for ZCode, inspired by
 [oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim).
 
@@ -12,12 +19,34 @@ editing, so the expensive main context stays small.
 | Component | Role |
 |---|---|
 | `skills/omz-slim` | Orchestration rules loaded into context (when to delegate, parallelism, budget discipline) |
-| `agents/omz-explorer` | Read-only codebase scout (cheap model — set `model:` in its frontmatter) |
-| `agents/omz-fixer` | Fast mechanical implementation executor (cheap model) |
-| `agents/omz-oracle` | Hard-problem advisor — highest-cost path, manual only |
+| `agents/omz-explorer` | Read-only codebase scout — routed to `GLM-5.3-Flash` |
+| `agents/omz-fixer` | Fast mechanical implementation executor — routed to `GLM-5.3-Flash` |
+| `agents/omz-oracle` | Hard-problem advisor — routed to `GLM-5.3`, escalation only |
 | `/delegate <task>` | Send a task to a background subagent |
 | `/oracle <question>` | Escalate a hard problem |
 | `/preset [strict\|balanced\|off]` | Adjust routing discipline for the session |
+| `/kimi <task>` | Dispatch a read-only/review task to Kimi Code CLI (`kimi -p`), summary only |
+| `/oc <task>` | Dispatch a cheap bulk sweep to OpenCode (oh-my-opencode-slim agent), summary only |
+
+## What's new in v1.0.1 — cross-tool dispatch (A+C pattern)
+
+v1 turns omz-slim into a three-tool orchestration layer (the 0.1.x model
+routing carries forward unchanged):
+
+- **ZCode** stays the sole orchestrator and daily GUI entry point.
+- **Kimi Code** is the delivery engine for quality-sensitive implementation
+  and second-opinion reviews (`/kimi` runs `kimi -p`, which uses auto
+  permissions — read-only/review tasks only unless the user approves writes).
+  On the Kimi side, [omk-slim](../omk-slim/) provides the same discipline as
+  a native Kimi Code plugin.
+- **OpenCode + oh-my-opencode-slim** absorbs cheap bulk sweeps (`/oc` runs
+  `opencode run --agent explorer`), spreading load across the other
+  subscription pools.
+
+Guardrails baked into the skill and commands: one-shot workers only (no
+sibling calling sibling, no calling back into the orchestrator), summaries
+instead of raw output, and evidence (diff/test output) before trusting a
+result.
 
 ## Install (local marketplace)
 

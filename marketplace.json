@@ -7,8 +7,8 @@
     {
       "name": "omz-slim",
       "source": "./omz-slim",
-      "description": "oh my ZCode - slim: cost-aware orchestration with explorer/fixer/oracle subagents",
-      "version": "0.1.2"
+      "description": "oh my ZCode - slim: cost-aware orchestration across ZCode, Kimi Code and OpenCode (explorer/fixer/oracle subagents + cross-tool dispatch)",
+      "version": "1.0.1"
     }
   ]
 }

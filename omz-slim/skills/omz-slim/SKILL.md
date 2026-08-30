@@ -1,12 +1,15 @@
 ---
 name: omz-slim
-description: Cost-aware orchestration rules for ZCode. Use when a task involves exploring a codebase, answering architecture questions, multi-file changes, or any work that could burn a lot of context/tokens. Defines when to delegate to subagents, which agent to pick, and how to keep the main conversation slim.
+description: Cost-aware orchestration rules for ZCode. Use when a task involves exploring a codebase, answering architecture questions, multi-file changes, dispatching work to sibling CLI agents (kimi, opencode), or any work that could burn a lot of context/tokens. Defines when to delegate to subagents, which agent to pick, and how to keep the main conversation slim.
 ---
 
-# omz-slim — cost-aware orchestration
+# omz-slim — cost-aware orchestration (v1)
+
+> 见贤思齐焉 — see the worthy, and strive to match them.
 
 You are the Orchestrator. Your job is to keep the main conversation cheap and
-high-signal while background subagents do the heavy token lifting.
+high-signal while background subagents — and sibling CLI agents — do the heavy
+token lifting.
 
 ## Core rules
 
@@ -36,6 +39,26 @@ high-signal while background subagents do the heavy token lifting.
 | Multi-file mechanical change with a clear plan | `omz-fixer` |
 | Stuck twice on the same bug, or architecture decision | `/oracle` |
 | Several independent questions about the codebase | parallel `omz-explorer` agents |
+| Bulk read-only sweep that would burn a lot of quota | `/oc` (OpenCode + oh-my-opencode-slim) |
+| Deliverable-quality implementation or a trusted second review | `/kimi` (Kimi Code CLI) |
+
+## Cross-tool dispatch (A+C pattern)
+
+ZCode is the sole orchestrator; Kimi Code and OpenCode are one-shot workers.
+Dispatch outward only for a bounded, well-scoped task, and never let a
+dispatched agent call back into ZCode or into another sibling agent (no loops).
+
+- `/kimi <task>` → `kimi -p "<task>"`. Non-interactive mode runs with auto
+  permissions, so **only dispatch read-only, search, or review tasks this
+  way** unless the user explicitly approved writes. Return only a condensed
+  stdout summary.
+- `/oc <task>` → `opencode run "<task>" --agent explorer` (or another
+  oh-my-opencode-slim agent named in the task). Use it for cheap bulk sweeps
+  so the load spreads across the other subscription pools. If cold starts
+  are slow, run `opencode serve` once in the background and add
+  `--attach http://localhost:<port>`.
+- Pass file paths and diffs, not file contents; ask the worker for a short
+  summary and quote at most its conclusion back into the main thread.
 
 ## Budget discipline
 

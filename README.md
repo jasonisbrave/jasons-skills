@@ -31,9 +31,9 @@ python scripts/pdf_table_to_md.py <pdf路径> <输出.md> \
     --start-page 1 --end-page 17 --header "考试内容,能力等级" --filter 主要参考法规
 ```
 
-### omk-slim（Kimi Code 插件）
+### omk-slim（Kimi Code 插件，v1.1.0）
 
-复刻 oh-my-opencode-slim 的多智能体编排与模型路由套件（omk = Oh My Kimi Code）：主 Agent 作为编排者，按场景把子任务派发给 `explorer`（代码侦察）/ `librarian`（外部调研）/ `fixer`（实现）/ `oracle`（架构顾问）四个专家子智能体，并配合 `[secondary_model]` 模型池把不同场景路由到不同档位的模型，平衡质量与成本。
+复刻 oh-my-opencode-slim 的多智能体编排与模型路由套件（omk = Oh My Kimi Code）：主 Agent 作为编排者，按场景把子任务派发给 `explorer`（代码侦察）/ `librarian`（外部调研）/ `fixer`（实现）/ `oracle`（架构顾问）四个专家子智能体，并配合 `[secondary_model]` 模型池把不同场景路由到不同档位的模型，平衡质量与成本。v1.1.0 起支持跨工具派发（A+C 模式）：廉价批量只读任务外派给 OpenCode，与 omz-slim 的编排纪律一致。
 
 ```bash
 # 克隆后在 Kimi Code 中：
@@ -43,9 +43,9 @@ python scripts/pdf_table_to_md.py <pdf路径> <输出.md> \
 
 详见 [omk-slim/README.md](omk-slim/README.md)（含模型池配置步骤）。
 
-### omz-slim（ZCode 插件）
+### omz-slim（ZCode 插件，v1.0.1）
 
-参考 oh-my-opencode-slim 的成本控制思路为 ZCode 做的精简版编排插件（omz = Oh My ZCode）：主对话作为编排者，把读代码、机械改动的重 token 工作派给后台子智能体，主上下文只保留规划与汇总。包含 3 个子智能体——`omz-explorer`（只读代码侦察，可配便宜模型）、`omz-fixer`（机械实现执行者，可配便宜模型）、`omz-oracle`（疑难架构顾问，最贵路径、仅手动触发），以及 `/delegate`、`/oracle`、`/preset` 三个斜杠命令控制委派与路由强度。
+参考 oh-my-opencode-slim 的成本控制思路为 ZCode 做的编排插件（omz = Oh My ZCode），v1.0.1 起升级为 ZCode / Kimi Code / OpenCode 三工具编排层：主对话作为编排者，把读代码、机械改动的重 token 工作派给后台子智能体（`omz-explorer` / `omz-fixer` 路由到 GLM-5.3-Flash，`omz-oracle` 路由到 GLM-5.3、仅手动触发），主上下文只保留规划与汇总；跨工具派发把廉价批量任务交给 OpenCode（`/oc`）、把交付级实现与评审交给 Kimi Code（`/kimi`）。共 5 个斜杠命令：`/delegate`、`/oracle`、`/preset`、`/kimi`、`/oc`。
 
 ```bash
 # ZCode 中：Settings → Plugin Management → Discover → +

@@ -15,6 +15,8 @@
 
 外加一份注入主 Agent 系统提示的**委派规则表**（`SYSTEM.md`），告诉主 Agent 什么场景派给谁、配哪档模型。
 
+v1.1.0 起支持**跨工具派发（A+C 模式）**：廉价批量只读任务可外派给 OpenCode（`opencode run --agent explorer`），由其 oh-my-opencode-slim 插件路由到更便宜的模型档位与配额池；只派只读/评审类任务、一次性执行、只回传结论摘要，与 ZCode 侧 [omz-slim](../omz-slim/) 的编排纪律保持一致。
+
 ## 安装
 
 ```bash
