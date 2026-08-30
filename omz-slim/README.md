@@ -82,6 +82,14 @@ repo edits stay invisible until the client installs a newer version:
 4. Verify: **Settings → Subagents** and **Settings → Skills** should reflect
    the new components.
 
+Note for **local-directory marketplaces** (source = a folder on disk): ZCode
+snapshots `marketplace.json` when the marketplace is added and does **not**
+re-scan the filesystem at startup — so restarting the client alone never
+produces an update prompt, even if the source directory already contains the
+new version. Open the **Discover** tab (triggers a re-read); if it still
+shows the old version, remove and re-add the marketplace, or simply
+Uninstall → Get the plugin to force a fresh copy.
+
 ## Cost tuning
 
 The agents are routed to BigModel coding-plan models (fully qualified with the
