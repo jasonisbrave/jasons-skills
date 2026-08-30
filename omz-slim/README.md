@@ -48,6 +48,14 @@ sibling calling sibling, no calling back into the orchestrator), summaries
 instead of raw output, and evidence (diff/test output) before trusting a
 result.
 
+## Always-on (v1.0.2)
+
+The plugin ships a `SessionStart` hook that injects the orchestration rules
+into **every new session automatically** — no manual skill invocation needed
+(same always-on model as oh-my-opencode-slim's system-prompt patch and
+omk-slim's `systemPromptPath`). To turn it off, disable the plugin or remove
+`hooks/` from your installed copy.
+
 ## Install (local marketplace)
 
 1. Clone this repo (or just the `omz-slim/` directory).

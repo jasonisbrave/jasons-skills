@@ -45,7 +45,7 @@ python scripts/pdf_table_to_md.py <pdf路径> <输出.md> \
 
 ### omz-slim（ZCode 插件，v1.0.1）
 
-参考 oh-my-opencode-slim 的成本控制思路为 ZCode 做的编排插件（omz = Oh My ZCode），v1.0.1 起升级为 ZCode / Kimi Code / OpenCode 三工具编排层：主对话作为编排者，把读代码、机械改动的重 token 工作派给后台子智能体（`omz-explorer` / `omz-fixer` 路由到 GLM-5.3-Flash，`omz-oracle` 路由到 GLM-5.3、仅手动触发），主上下文只保留规划与汇总；跨工具派发把廉价批量任务交给 OpenCode（`/oc`）、把交付级实现与评审交给 Kimi Code（`/kimi`）。共 5 个斜杠命令：`/delegate`、`/oracle`、`/preset`、`/kimi`、`/oc`。
+参考 oh-my-opencode-slim 的成本控制思路为 ZCode 做的编排插件（omz = Oh My ZCode），v1.0.1 起升级为 ZCode / Kimi Code / OpenCode 三工具编排层：主对话作为编排者，把读代码、机械改动的重 token 工作派给后台子智能体（`omz-explorer` / `omz-fixer` 路由到 GLM-5.3-Flash，`omz-oracle` 路由到 GLM-5.3、仅手动触发），主上下文只保留规划与汇总；跨工具派发把廉价批量任务交给 OpenCode（`/oc`）、把交付级实现与评审交给 Kimi Code（`/kimi`）。共 5 个斜杠命令：`/delegate`、`/oracle`、`/preset`、`/kimi`、`/oc`。v1.0.2 起编排规则通过 SessionStart 钩子在**每个新会话默认注入**，无需手动调用技能。
 
 ```bash
 # ZCode 中：Settings → Plugin Management → Discover → +
