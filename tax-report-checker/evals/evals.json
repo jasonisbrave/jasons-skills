@@ -1,0 +1,23 @@
+{
+  "skill_name": "tax-report-checker",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我复核一下 D:\\Code\\Work\\复核\\模版\\02所得税 这套企业所得税汇缴报告，看看报告和申报表有没有问题",
+      "expected_output": "识别为所得税报告；解析 docx+xlsx；执行公式健康/完整性/数值校验；生成 link_map 并做报告↔申报表勾稽；自动执行 API 证据包终审并输出待人工复核.md；Agent 重点复核 needs_human 条目后输出复核结果.xlsx（7 sheets）和复核报告.md；汇报问题/存疑/待人工复核统计与路径",
+      "files": ["D:\\Code\\Work\\复核\\模版\\02所得税"]
+    },
+    {
+      "id": 2,
+      "prompt": "这份加计扣除报告帮我看看有没有错：D:\\Code\\Work\\复核\\模版\\01加计报告，重点核对报告里的数字和附件表格对不对得上",
+      "expected_output": "识别为加计扣除报告；读取 rd_rules.md 勾稽点；报告正文金额（账面归集/审核数/加计扣除总额）与附件2优惠明细表逐项勾稽；模板提示语残留检查；API 证据包终审后输出待人工复核.md；Agent 复核 needs_human 条目后输出 Excel+Markdown 复核报告",
+      "files": ["D:\\Code\\Work\\复核\\模版\\01加计报告"]
+    },
+    {
+      "id": 3,
+      "prompt": "D:\\Code\\Work\\复核\\模版\\03高新 这套高新认定鉴证报告帮我复核一下，注意是老格式的文件",
+      "expected_output": "识别旧格式 .doc/.xls 并自动转换（或优雅提示）；附件1 三年研发费明细表勾稽（含外部链接提示）；万元口径正确处理；API 证据包终审后输出待人工复核.md；Agent 复核 needs_human 条目后输出复核报告",
+      "files": ["D:\\Code\\Work\\复核\\模版\\03高新"]
+    }
+  ]
+}
