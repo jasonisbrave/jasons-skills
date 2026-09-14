@@ -1,0 +1,6 @@
+{
+  "name": "tax-report-checker",
+  "version": "1.1.0",
+  "description": "Tax report review skill: cross-check Word reports against Excel filing forms (formula rebuild, value reconciliation, completeness, legacy .doc/.xls conversion), for CIT annual filing, R&D super-deduction and HNTE audit reports.",
+  "skills": "skills"
+}

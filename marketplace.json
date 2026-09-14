@@ -9,6 +9,24 @@
       "source": "./omz-slim",
       "description": "oh my ZCode - slim: cost-aware orchestration across ZCode, Kimi Code and OpenCode (explorer/fixer/oracle subagents + cross-tool dispatch)",
       "version": "1.0.3"
+    },
+    {
+      "name": "tax-report-checker",
+      "source": "./tax-report-checker",
+      "description": "Tax report review: cross-check Word reports against Excel filing forms (formula rebuild, value reconciliation, completeness) for CIT filing, R&D super-deduction and HNTE audit reports",
+      "version": "1.1.0"
+    },
+    {
+      "name": "pdf-handwriting-to-word",
+      "source": "./pdf-handwriting-to-word",
+      "description": "Transcribe handwritten scanned PDFs page by page and generate a Chinese official-document style docx",
+      "version": "1.0.0"
+    },
+    {
+      "name": "pdf-cross-page-table-to-md",
+      "source": "./pdf-cross-page-table-to-md",
+      "description": "Convert cross-page two-column PDF tables into precise Markdown tables (cell-level coordinates, non-OCR)",
+      "version": "1.0.0"
     }
   ]
 }

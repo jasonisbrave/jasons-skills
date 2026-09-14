@@ -82,7 +82,20 @@ python scripts/run_check.py <报告目录> -o <输出目录> --scope standard
 
 ## 安装方式
 
-将对应技能目录复制到代理的 skills 目录（如项目级 `.agents/skills/` 或用户级 `~/.agents/skills/`）即可被自动发现。
+每个技能目录是一个自带 `.zcode-plugin/plugin.json` 的插件包，实际技能内容位于 `<技能名>/skills/<技能名>/`。两种安装方式：
+
+**方式一：marketplace（ZCode）**
+
+```
+# Settings → Plugin Management → Discover → +
+# 将本仓库添加为 marketplace，安装并启用对应技能插件
+```
+
+**方式二：手动复制**
+
+将 `<技能名>/skills/<技能名>/` 复制到代理的 skills 目录（如项目级 `.agents/skills/` 或用户级 `~/.agents/skills/`）即可被自动发现。
+
+> 更新已安装副本时需同步 bump `marketplace.json` 条目与 `.zcode-plugin/plugin.json` 中的 `version`，否则客户端视为已是最新（本地目录型 marketplace 不会在重启时自动重扫，见 [omz-slim/README.md](omz-slim/README.md) 的更新说明）。
 
 ## License
 

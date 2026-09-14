@@ -1,0 +1,6 @@
+{
+  "name": "pdf-cross-page-table-to-md",
+  "version": "1.0.0",
+  "description": "Convert cross-page two-column PDF tables into precise Markdown tables using cell-level coordinate recognition (pdfplumber, non-OCR).",
+  "skills": "skills"
+}

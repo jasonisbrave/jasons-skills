@@ -1,0 +1,6 @@
+{
+  "name": "pdf-handwriting-to-word",
+  "version": "1.0.0",
+  "description": "Transcribe handwritten scanned PDFs page by page and generate a Chinese official-document style docx from the transcript.",
+  "skills": "skills"
+}
