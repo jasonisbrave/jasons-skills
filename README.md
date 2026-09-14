@@ -31,6 +31,19 @@ python scripts/pdf_table_to_md.py <pdf路径> <输出.md> \
     --start-page 1 --end-page 17 --header "考试内容,能力等级" --filter 主要参考法规
 ```
 
+### tax-report-checker
+
+复核税务鉴证报告产出物（Word 报告 + Excel 申报表），发现勾稽错误、公式被改、文字与申报表数字不一致、填报遗漏、文本格式问题。覆盖三类报告：企业所得税汇算清缴、研发费用加计扣除、高新技术企业认定专项鉴证。
+
+- 算术 100% 走代码（Decimal 精度）：模板公式重算（被修改/删除/口径错误）、报告文字 vs 申报表数值双核对、表间勾稽校验
+- 报告类型自动识别，`.doc`/`.xls` 旧格式自动转换（Windows COM 优先，LibreOffice 回退）
+- 可选 DeepSeek API 预复核与终审（AI 只做语义定位与证据包抽查，密钥走 `DEEPSEEK_API_KEY` 环境变量）
+- 输出 7 sheet Excel 复核底稿 + Markdown 复核报告
+
+```bash
+python scripts/run_check.py <报告目录> -o <输出目录> --scope standard
+```
+
 ### omk-slim（Kimi Code 插件，v1.1.0）
 
 复刻 oh-my-opencode-slim 的多智能体编排与模型路由套件（omk = Oh My Kimi Code）：主 Agent 作为编排者，按场景把子任务派发给 `explorer`（代码侦察）/ `librarian`（外部调研）/ `fixer`（实现）/ `oracle`（架构顾问）四个专家子智能体，并配合 `[secondary_model]` 模型池把不同场景路由到不同档位的模型，平衡质量与成本。v1.1.0 起支持跨工具派发（A+C 模式）：廉价批量只读任务外派给 OpenCode，与 omz-slim 的编排纪律一致。
@@ -65,6 +78,7 @@ python scripts/pdf_table_to_md.py <pdf路径> <输出.md> \
 - Python 3.10+
 - `pdf-handwriting-to-word`：`pymupdf`、`python-docx`
 - `pdf-cross-page-table-to-md`：`pdfplumber`
+- `tax-report-checker`：`openpyxl`、`python-docx`、`openai`、`json_repair`、`pywin32`（仅旧格式转换需要）
 
 ## 安装方式
 
