@@ -2,6 +2,54 @@
   "$schema": "https://unpkg.com/oh-my-opencode-slim@latest/oh-my-opencode-slim.schema.json",
   "preset": "kimi-glm",
   "presets": {
+    "glm": {
+      "orchestrator": {
+        "model": "zhipuai-coding-plan/glm-5.3",
+        "variant": "max",
+        "skills": ["*"],
+        "mcps": ["*", "!context7"]
+      },
+      "oracle": {
+        "model": "zhipuai-coding-plan/glm-5.3",
+        "variant": "max",
+        "skills": ["simplify"],
+        "mcps": []
+      },
+      "council": {
+        "model": "zhipuai-coding-plan/glm-5.3",
+        "skills": ["simplify"],
+        "mcps": []
+      },
+      "librarian": {
+        "model": "zhipuai-coding-plan/glm-5.3-flash",
+        "variant": "low",
+        "skills": [],
+        "mcps": ["context7", "gh_grep"]
+      },
+      "explorer": {
+        "model": "zhipuai-coding-plan/glm-5.3-flash",
+        "variant": "low",
+        "skills": [],
+        "mcps": []
+      },
+      "designer": {
+        "model": "zhipuai-coding-plan/glm-5.3",
+        "variant": "high",
+        "skills": [],
+        "mcps": []
+      },
+      "fixer": {
+        "model": "zhipuai-coding-plan/glm-5.3-flash",
+        "variant": "high",
+        "skills": [],
+        "mcps": []
+      },
+      "observer": {
+        "model": "zhipuai-coding-plan/glm-5v-turbo",
+        "skills": [],
+        "mcps": []
+      }
+    },
     "kimi-glm": {
       "orchestrator": {
         "model": ["kimi-for-coding/k3", "zhipuai-coding-plan/glm-5.3"],
@@ -55,6 +103,14 @@
         },
         "kimi-code": {
           "model": "kimi-for-coding/kimi-for-coding"
+        },
+        "glm-5.2": {
+          "model": "zhipuai-coding-plan/glm-5.2"
+        }
+      },
+      "glm": {
+        "glm-5.3": {
+          "model": "zhipuai-coding-plan/glm-5.3"
         },
         "glm-5.2": {
           "model": "zhipuai-coding-plan/glm-5.2"
